@@ -7,8 +7,8 @@ class Point(object):
         self.x = x
         self.y = y
     def move_by(self,dx,dy):
-        self.dx += dx
-        self.dy += dy
+        self.x += dx
+        self.y += dy
     def distance_to(self,other):
         dx = self.x - other.x
         dy = self.y - other.y
@@ -21,7 +21,9 @@ def main():
     p2 = Point()
     print(p1)
     print(p2)
+    p1.move_by(2,6)
     p2.move_to(-1,2)
+    print(p1)
     print(p2)
     print(p1.distance_to(p2))
 
