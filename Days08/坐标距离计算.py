@@ -9,7 +9,7 @@ class Point(object):
     def move_by(self,dx,dy):
         self.x += dx
         self.y += dy
-    def distance_to(self,other):
+    def distance_to(self,other):     #other指向另一个实例
         dx = self.x - other.x
         dy = self.y - other.y
         return sqrt(dx**2+dy**2)
