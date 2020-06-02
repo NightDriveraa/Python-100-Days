@@ -1,3 +1,5 @@
+"""一个可用于表示汽车的类"""
+
 class Car():
     def __init__(self,make,year,model):  #初始化方法
         self.make = make
@@ -25,12 +27,35 @@ class Car():
             print('You can\'t roll back an odometer!')
 
 
-my_car = Car('Audi',2016,'A4')  #创建实例
-my_car.get_descriptive_name()   #打印实例属性
 
-my_car.odometer_reading = 26    #访问实例直接修改属性
-my_car.read_odometer()          #打印里程
-my_car.update_odometer(20)      #通过方法修改里程数
-my_car.read_odometer()
-my_car.increment_odometer(-2)   #递增方法修改里程数
-my_car.read_odometer()
+class Battery():
+    def __init__(self,battery_size=70):
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        print('This car has a '+str(self.battery_size)+'-KWh battery')
+
+    def get_range(self):
+        if self.battery_size == 70:
+            range = 240
+        elif self.battery_size == 85:
+            range = 270
+        message = "This car can go approximately " + str(range) + ' miles on a full charge'
+        print(message)
+
+    def update_battery(self):
+        if self.battery_size != 85:
+            self.battery_size = 85
+
+class ElectricCar(Car):
+    def __init__(self,make,year,model):
+        super().__init__(make,year,model)
+        self.battery = Battery()
+
+
+my_tesla = ElectricCar('tesla',2016,'Model s')
+my_tesla.get_descriptive_name()
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+my_tesla.battery.update_battery()
+my_tesla.battery.get_range()
