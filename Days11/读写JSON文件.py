@@ -1,23 +1,20 @@
 import json
-def main():
-    mydict = {
-        'name': '骆昊',
-        'age': 38,
-        'qq': 957658,
-        'friends': ['王大锤', '白元芳'],
-        'cars': [
-            {'brand': 'BYD', 'max_speed': 180},
-            {'brand': 'Audi', 'max_speed': 280},
-            {'brand': 'Benz', 'max_speed': 320}
-        ]
-    }
+filename = 'numbers.json'
+numbers = [5,7,5,8,9,3,2,1]
+with open(filename,'w') as f_obj:
+    json.dump(numbers,f_obj)
+with open(filename) as f_obj:
+    number = json.load(f_obj)
+print(number)
 
-    try:
-        with open('data.json','w',encoding='utf-8') as fs:
-            json.dump(mydict,fs)
-    except IOError as e:
-        print(e)
-    print('程序结束')
-
-if __name__ == '__main__':
-    main()
+filename = 'username.txt'
+try:
+    with open(filename) as f_obj1:
+        username = json.load(f_obj1)
+except FileNotFoundError:
+    username = input('Enter your name: ')
+    with open(filename,'w') as f_obj2:
+        json.dump(username,f_obj2)
+        print('We\'ll remeber you when you come back,' + username + ' !')
+else:
+    print(username + ' welcome back！')
