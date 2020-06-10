@@ -7,14 +7,13 @@ with open(filename) as f_obj:
     number = json.load(f_obj)
 print(number)
 
-filename = 'username.txt'
+filename = 'favorite_numbers.json'
 try:
     with open(filename) as f_obj1:
-        username = json.load(f_obj1)
+        favorite_number = json.load(f_obj1)
 except FileNotFoundError:
-    username = input('Enter your name: ')
+    favorite_number = input('Enter your favorite number: ')
     with open(filename,'w') as f_obj2:
-        json.dump(username,f_obj2)
-        print('We\'ll remeber you when you come back,' + username + ' !')
+        json.dump(favorite_number,f_obj2)
 else:
-    print(username + ' welcome back！')
+    print('Your favorite number is : '+favorite_number )
