@@ -8,5 +8,3 @@ plt.ylabel("Squares of Value",fontsize = 24)
 plt.tick_params(axis='both',labelsize=14)
 plt.show()
 
-plt.scatter(2,4)
-plt.show()
